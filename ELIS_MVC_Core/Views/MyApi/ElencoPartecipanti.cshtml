@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Partecipanti>
+@{
+    ViewData["Title"] = "ElencoPartecipanti";
+}
+
+<h1>ElencoPartecipanti</h1>
+
+<hr class="my-3" />
+
+<table class="table table-bordered border border-2 border-dark">
+
+	<tr class="bg-dark text-light border-light">
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Cognome</th>
+		<th>Data di nascita</th>
+		<th>Residenza</th>
+		<th>Titolo di studio</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr class="bg-light align-middle">
+			<td>@item.Idpartecipante</td>
+			<td>@item.Nome</td>
+			<td>@item.Cognome</td>
+			<td>@item.DataNascita?.ToString("dd/MM/yyyy")</td>
+			<td>@item.Residenza</td>
+			<td>@item.TitoloStudio</td>
+		</tr>
+	}
+</table>

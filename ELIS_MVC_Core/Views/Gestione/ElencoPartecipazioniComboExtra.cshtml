@@ -1,0 +1,25 @@
+﻿@model Corsi
+@{
+    ViewData["Title"] = "ElencoPartecipazioniComboExtra";
+}
+
+<h1>Elenco Partecipazioni Combo Extra</h1>
+
+<hr />
+
+<form method="post">
+	<div class="row align-items-center my-3">
+		<div class="col-4">
+			<select asp-for="Titolo" asp-items="@(ViewBag.Titoli as List<SelectListItem>)" name="corso" class="form-control"></select>
+		</div>
+		<div class="col-2">
+			<input type="submit" value="Filtra" class="btn btn-success"/>
+		</div>
+	</div>
+</form>
+
+<hr />
+
+<partial name="_TabellaPartecipazioni" />
+
+

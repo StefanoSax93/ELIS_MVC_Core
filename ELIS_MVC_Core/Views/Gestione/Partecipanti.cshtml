@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Partecipanti> // serve per farmi apparire i suggerimenti sulle colonne della tabella corsi
+@{
+	ViewData["Title"] = "Partecipanti";
+}
+
+<h1>Gestione Partecipanti</h1>
+
+<table class="table table-bordered mt-4">
+
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Cognome</th>
+		<th>Residenza</th>
+		<th>Data di nascita</th>
+		<th>Titolo di studio</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+				<tr>
+					<td>@item.Idpartecipante</td>
+					<td>@item.Nome</td>
+					<td>@item.Cognome</td>
+					<td>@item.Residenza</td>
+					<td>@item.DataNascita?.ToString("dd/MM/yyyy")</td>
+					<td>@item.TitoloStudio</td>
+					<td><a asp-action="Edit" asp-route-id="@item.Idpartecipante">Edit</a></td>
+				</tr>
+	}
+</table>

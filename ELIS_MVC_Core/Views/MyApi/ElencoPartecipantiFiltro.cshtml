@@ -1,0 +1,59 @@
+﻿@model Partecipanti
+@{
+    ViewData["Title"] = "ElencoPartecipantiFiltro";
+}
+
+<h1>ElencoPartecipantiFiltro</h1>
+
+<hr />
+
+<form method="post">
+	<div class="row align-items-center my-3">
+		<div class="col-1">
+			<label>Cerca partecipante: </label>
+		</div>
+		<div class="col-3">
+			<input type="text" class="form-control" name="id" value="@ViewBag.id" />
+		</div>
+		<div class="col-2">
+			<input class="btn btn-success" type="submit" value="Filtra" />
+		</div>
+	</div>
+</form>
+
+<hr class="my-2"/>
+
+@if (Model != null)
+{
+	@if (Model.Nome != null)
+	{
+		<table class="table table-bordered mt-4 border border-2 border-dark">
+
+			<tr class="bg-dark text-light border-light">
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Data di nascita</th>
+				<th>Residenza</th>
+				<th>Titolo di studio</th>
+			</tr>
+
+
+
+			<tr class="bg-light align-middle">
+				<td>@Model.Idpartecipante</td>
+				<td>@Model.Nome</td>
+				<td>@Model.Cognome</td>
+				<td>@Model.DataNascita?.ToString("dd/MM/yyyy")</td>
+				<td>@Model.Residenza</td>
+				<td>@Model.TitoloStudio</td>
+			</tr>
+
+		</table>
+	}
+	else
+	{
+		<h3>Nessun Risultato Trovato</h3>
+	}
+
+}

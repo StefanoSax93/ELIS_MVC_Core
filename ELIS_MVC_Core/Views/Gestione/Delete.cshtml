@@ -1,0 +1,78 @@
+﻿@model DeletePartecipation
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+
+    <h1>Elimina Partecipazione</h1>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Sei sicuro di voler eliminare questo elemento?</h2>
+        <a asp-action="ElencoPartecipazioni" class="text-light">
+        <button class="btn btn-success rounded-circle">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        </a>
+    </div>
+
+    <div class="row my-3">
+           <div class="col-3">
+               Id Partecipazione:
+           </div> 
+           <div class="col-3">
+            @Model.Id
+           </div>  
+     </div>
+
+     <div class="row my-3">
+           <div class="col-3">
+               Id Edizione:
+           </div> 
+           <div class="col-3">
+            @Model.IdEdizione
+           </div>  
+     </div>
+
+    <div class="row my-3">
+           <div class="col-3">
+               Nome Corso:
+           </div> 
+           <div class="col-3">
+               @Model.NomeCorso
+           </div>  
+     </div>
+
+     <div class="row my-3">
+           <div class="col-3">
+               Luogo:
+           </div> 
+           <div class="col-3">
+            @Model.Luogo
+           </div>  
+     </div>
+
+     <div class="row my-3">
+           <div class="col-3">
+               Durata:
+           </div> 
+           <div class="col-3">
+            @Model.Durata Ore
+           </div>  
+     </div>
+
+     <div class="row my-3">
+           <div class="col-3">
+               Partecipante:
+           </div> 
+           <div class="col-3">
+            @Model.NomePartecipante @Model.CognomePartecipante
+           </div>  
+     </div>
+
+    <form method="post">
+        <input type="hidden" name="@Model.Id" />
+        <input type="submit" value="Elimina" class="btn btn-danger" />
+    </form>
+</div>
+

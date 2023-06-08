@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ELIS_MVC_Core</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/ELIS_MVC_Core.styles.css" asp-append-version="true" />
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container-fluid">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ELIS_MVC_Core</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Giorno1
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="View01">View01</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="View02">View02</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Calcolatrice" asp-action="Calcolatrici">Tre Calcolatrici</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Saluto" asp-action="Index">Esercizio</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Giorno2
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Partecipantis" asp-action="Index">Partecipanti</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="Index">Gestione Corsi</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Giorno3
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="Partecipanti">Gestione Partecipanti</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoFiltratoSemplice">Elenco Filtrato</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="NuovoPartecipante">Nuovo Partecipante</a>
+								</li>
+								@*
+									<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Edizionis" asp-action="Index">Edizioni</a>
+								</li>
+								*@
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Giorno4
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoEdizioni">Elenco Edizioni</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoPartecipazioni">Elenco Partecipazioni</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoFiltratoCorsi">Elenco Filtrato Corsi</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Giorno5
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoPartecipazioniCombo">Elenco Partecipazioni Combo</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="ElencoPartecipazioniComboExtra">Elenco Partecipazioni Combo Extra</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Gestione" asp-action="PartecipazioniAjax">Partecipazioni Ajax</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Group" asp-action="ConteggioEdizioni">Conteggio Edizioni</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+							   data-bs-toggle="dropdown"
+							   href="#"
+							   role="button"
+							   aria-expanded="false">
+								Giorno6
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Group" asp-action="ChiamaSP">Partecipanti per edizione(stored)</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="ElencoCorsi">Elenco Corsi Api</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="ElencoCorsiFiltro">Elenco Corsi Filtro Api</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="JQueryWebApi">Elenco Corsi Da Web Api con JQuery</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+							   data-bs-toggle="dropdown"
+							   href="#"
+							   role="button"
+							   aria-expanded="false">
+								Giorno7
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="ElencoPartecipanti">Elenco Partecipanti Api</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="ElencoPartecipantiFiltro">Elenco Partecipanti Filtro Api</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="JQueryWebApiPartecipanti">Elenco Partecipanti Da Web Api con JQuery</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="MyApi" asp-action="WebApiEsterna">Elenco Partecipanti Da Web Api con JQuery</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-expanded="false">Gestione Stato
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Stato" asp-action="Partenza">Partenza</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Stato" asp-action="Arrivo">Arrivo</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2023 - ELIS_MVC_Core - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model Edizioni
+@{
+    ViewData["Title"] = "EditEdizione";
+}
+<div class="container">
+<div class="d-flex justify-content-between align-items-center">
+	<h1>Modifica Edizione</h1>
+<a asp-action="ElencoEdizioni" class="text-light">
+		<button class="btn btn-success rounded-circle">
+				<i class="fa-solid fa-arrow-left"></i>
+		</button>
+</a>
+</div>
+<hr />
+<form method="post">
+	
+		<div class="row my-3">
+		   <div class="col">
+			   Corso:
+		   </div>
+		   <div class="col">
+			   <select asp-for="Idcorso" class="form-control" asp-items="ViewBag.Idcorso"></select>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Data:
+		   </div>
+		   <div class="col">
+			   <input type="date" class="form-control" name="DataInizio" value="@Model.DataInizio?.ToString("yyyy-MM-dd")"/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Luogo:
+		   </div>
+		   <div class="col">
+			   <input type="text" class="form-control" name="Luogo" value="@Model.Luogo"/>
+		   </div>
+		</div>
+
+		<div class="row">
+		   <div class="col">
+
+		   </div>
+		   <div class="col">
+			   <input class="btn btn-success" type="submit" value="Salva" />
+		   </div>
+		</div>
+	
+</form>
+</div>

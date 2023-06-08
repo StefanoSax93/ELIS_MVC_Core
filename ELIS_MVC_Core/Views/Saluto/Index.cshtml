@@ -1,0 +1,43 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+	string nome = Context.Request.Query["nome"];
+	string città = Context.Request.Query["città"];
+
+	string risultato = $"Ciao {nome}, benvenuto a {città}";
+
+}
+
+<h1>Esercizio</h1>
+<hr />
+
+<form>
+	<label>Scrivi il tuo nome: </label>
+	<input type="text" name="nome" value="@nome"/>
+    <br />
+	<br />
+
+    <label>Scegli la città: </label>
+	<select type="text" name="città">
+		<option value="">Seleziona Città</option>
+		<option value="Roma">Roma</option>
+		<option value="Milano">Milano</option>
+		<option value="Napoli">Napoli</option>
+		</select>
+    <br />
+	<br />
+
+    <input type="submit" value="Saluta"/> 
+	<hr />
+	
+</form>
+
+@if (!string.IsNullOrEmpty(città) && !string.IsNullOrEmpty(nome))
+{
+	<h2>@risultato</h2>
+}
+
+
+
+
+

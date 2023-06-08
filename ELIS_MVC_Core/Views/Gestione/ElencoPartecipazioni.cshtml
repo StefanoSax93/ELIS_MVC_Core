@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "ElencoPartecipazioni";
+}
+
+<h1>Elenco Partecipazioni</h1>
+<hr />
+
+<table class="table table-bordered border border-2 border-dark">
+
+    <tr class="bg-dark text-light border-light">
+        <th>ID Edizione</th>
+        <th>Data</th>
+        <th>Titolo Corso</th>
+        <th>Luogo</th>
+        <th>Durata</th>
+        <th>Cognome</th>
+        <th>Residenza</th>
+        <th>Giudizio</th>
+        <th class="text-center">Modifica</th>
+        <th class="text-center">Elimina</th>
+    </tr>
+
+    @foreach (var item in ViewBag.Elenco)
+    {
+        
+            <tr class="bg-light align-middle">
+                <td>@item.Idedizione</td>
+                <td>@item.DataInizio?.ToString("dd/MM/yyyy")</td>
+                <td>@item.Titolo</td>
+                <td>@item.Luogo</td>
+                <td>@item.Durata ore</td>
+                <td>@item.Cognome</td>
+                <td>@item.Residenza</td>
+            @if(item.Giudizio == null)
+            {
+                <td>Vuoto</td>
+            } else
+            {
+                        <td>@item.Giudizio</td>
+            }
+                <td class="text-center">
+                    <a asp-action="EditPartecipazione" asp-route-id="@item.IdPartecipazione">
+                       <button class="btn btn-warning">
+                               <i class="fa-regular fa-pen-to-square"></i>
+                       </button>
+                    </a>
+                </td>
+                    <td class="text-center">
+                            <a asp-action="Delete" asp-route-id="@item.IdPartecipazione">
+                           <button class="btn btn-danger">
+                                   <i class="fa-solid fa-trash"></i>
+                           </button>
+                        </a>
+                    </td>
+            </tr>
+
+    }
+</table>
+

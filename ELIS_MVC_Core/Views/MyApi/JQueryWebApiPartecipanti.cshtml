@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "JQueryWebApiPartecipanti";
+}
+
+@section Scripts {
+    <script>
+
+        $(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    url: "http://localhost:5279/api/Partecipantis",
+                    type: "GET",
+                    dataType: "JSON"
+                }).done(function (jsonData) {
+                    $.each(jsonData, function (key, item) {
+                        $("<tr class='bg-light'><td>" + item.idpartecipante + "</td><td>"
+                            + item.nome + "</td><td>" + item.cognome + "</td><td>"
+                            + formatDate(item.dataNascita) + "</td><td>" + item.residenza + "</td><td>"
+                            + item.titoloStudio + "</td></tr>").appendTo($("#target"))
+                    })
+                })
+            });
+        });
+
+        function formatDate(dateString) {
+            var date = new Date(dateString);
+            var giorno = String(date.getDate()).padStart(2, '0');
+            var mese = String(date.getMonth() + 1).padStart(2, '0');
+            var anno = date.getFullYear();
+            return giorno + "/" + mese + "/" + anno;
+        }
+
+    </script>
+}
+
+<h1>Elenco Partecipanti da web api con JQuery</h1>
+
+<hr />
+
+<input type="button" id="btn" value="Carica" class="btn btn-success" />
+<hr class="my-3" />
+<table class="table table-bordered border border-2 border-dark" id="target">
+    <tr class="bg-dark text-light border-light">
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Data di nascita</th>
+        <th>Residenza</th>
+        <th>Titolo di studio</th>
+    </tr>
+</table>

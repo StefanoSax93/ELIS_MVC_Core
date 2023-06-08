@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Edizioni>
+@{
+	ViewData["Title"] = "ElencoEdizioni";
+
+}
+
+<h1>Elenco Edizioni</h1>
+<p class="my-4">
+	<a asp-action="NuovaEdizione" class="text-decoration-none fw-bold"> Inserisci una nuova edizione</a>
+</p>
+
+<table class="table table-bordered">
+	<tr>
+		<th>ID</th>
+		<th>ID Corso</th>
+		<th>Titolo Corso</th>
+		<th>Data</th>
+		<th>Durata</th>
+		<th>Costo</th>
+		<th>Luogo</th>
+		<th class="text-center">Modifica</th>
+		<th class="text-center">Iscriviti</th>
+	</tr>
+
+	@foreach (var item in ViewBag.Elenco)
+	{
+			<tr>
+				<td>@item.Idedizione</td>
+				<td>@item.Idcorso</td>
+				<td>@item.Titolo</td>
+				<td>@item.DataInizio?.ToString("dd/MM/yyyy")</td>
+				<td>@item.Durata ore</td>
+			    <td>@string.Format("{0:0.00}", item.Costo) €</td>
+				<td>@item.Luogo</td>
+				<td class="text-center">
+					<a asp-action="EditEdizione" asp-route-id="@item.Idedizione">
+						<button class="btn btn-warning">
+						     <i class="fa-regular fa-pen-to-square"></i>
+					    </button>
+					</a>
+				</td>
+				<td class="text-center">
+					<a asp-action="Iscriviti" asp-route-id="@item.Idedizione">
+						<button class="btn btn-success">
+								<i class="fa-solid fa-user-plus"></i>
+						</button>
+					</a>
+				</td>
+			</tr>
+
+	}
+</table>
+

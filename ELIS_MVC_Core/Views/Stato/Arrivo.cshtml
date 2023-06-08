@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Arrivo";
+}
+
+@section Scripts {
+    <script>
+        function LeggiClient() {
+            document.getElementById("txt2").value = window.sessionStorage.getItem("ss");
+        }
+    </script>
+}
+
+<h1>Arrivo</h1>
+<hr />
+
+<p>Leggi il testo salvato sul Client</p>
+<input type="text" name="txt2" id="txt2"/>
+<br />
+<input type="button" value="Leggi" onclick="LeggiClient()"/>
+
+<hr />
+
+<p>Leggi il testo salvato sul Server</p>
+<input type="text" name="txt3" id="txt3" value="@Context.Session.GetString("sa")"/>
+

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Partenza";
+}
+
+@section Scripts {
+    <script>
+        function SalvaClient() {
+            window.sessionStorage.setItem("ss",document.getElementById("txt2").value);
+        }
+    </script>
+}
+
+<h1>Pagina di Partenza</h1>
+<hr />
+<h2>Gestione dello stato</h2>
+<hr />
+<h3>Lato Server: Session</h3>
+
+<p>Scrivi il testo da salvare sul server</p>
+<form>
+    <input type="text" name="txt1" id="txt1" /> <br />
+    <input type="submit" value="Salva lato server" />
+</form>
+
+<hr />
+
+<h3>Lato Client: SessionStorage</h3>
+
+<p>Scrivi il testo da salvare sul client</p>
+<form>
+    <input type="text" name="txt2" id="txt2" /> <br />
+    <input type="button" value="Salva lato client" onclick="SalvaClient()"/>
+</form>
+
+
+

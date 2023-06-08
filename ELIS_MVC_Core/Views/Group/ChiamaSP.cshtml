@@ -1,0 +1,27 @@
+﻿@model IEnumerable<usp_PartecipantiEdizioniResult>
+@{
+    ViewData["Title"] = "ChiamaSP";
+}
+
+<h1 class="text-uppercase">Elenco partecipanti per edizione</h1>
+
+<hr />
+
+<table class="table table-bordered mt-4 border border-2 border-dark">
+    <tr class="bg-dark text-light border-light">
+        <th>Edizione</th>
+        <th>Titolo del Corso</th>
+        <th>Numero di Partecipanti</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="bg-light align-middle">
+            <td>@item.IDEdizione</td>
+            <td>@item.Titolo</td>
+            <td>@item.Num_Partecipanti</td>
+        </tr>
+    }
+</table>
+
+

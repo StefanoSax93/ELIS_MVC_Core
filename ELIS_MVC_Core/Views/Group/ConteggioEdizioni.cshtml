@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "ConteggioEdizioni";
+}
+
+<h1>Conteggio Edizioni</h1>
+
+<table class="table table-bordered mt-4 border border-2 border-dark">
+    <tr class="bg-dark text-light border-light">
+        <th>Titolo Corso</th>
+        <th>Numero Edizioni</th>
+    </tr>
+
+@foreach (var item in ViewBag.Elenco)
+{
+         <tr class="bg-light align-middle">
+            <td>@item.TitoloCorso</td>
+            <td>@item.N_edizioni</td>
+        </tr>
+}
+</table>

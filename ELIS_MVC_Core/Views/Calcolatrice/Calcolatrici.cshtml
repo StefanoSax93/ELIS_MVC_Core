@@ -1,0 +1,52 @@
+﻿
+@{
+	ViewData["Title"] = "Calcolatrici";
+	int v1 = Convert.ToInt32(Context.Request.Query["txt4"]);
+	int v2 = Convert.ToInt32(Context.Request.Query["txt5"]);
+	int risultato = v1 + v2;
+}
+
+<!-- Come inserire JS nella view -->
+@section Scripts {
+				<script>
+						function Somma() {
+							let n1 = Number(document.getElementById("txt1").value)
+							let n2 = Number(document.getElementById("txt2").value)
+							let n3 = (n1 + n2).toFixed(2)
+
+							document.getElementById("txt3").value = n3
+
+						}
+				</script>
+}
+
+<h1>Esempio di Calcolatrici</h1>
+
+<h2>Calcolatrice JavaScript</h2>
+<hr/>
+<input type="text" id="txt1"/> <br />
+<input type="text" id="txt2"/> <br />
+<input type="button" id="btn1" value="Calcola Js" onclick="Somma()"/> <br />
+<input type="text" id="txt3"/> <br />
+
+<h2>Calcolatrice Razor</h2>
+<hr/>
+<form>
+	<input type="text" id="txt4" name="txt4" value="@v1"> <br />
+	<input type="text" id="txt5" name="txt5" value="@v2"/> <br />
+	<input type="submit" id="btn2" value="Calcola Razor"/> <br />
+	<input type="text" id="txt6" name="txt6" value="@risultato"/> <br />
+</form>
+
+
+<h2>Calcolatrice C#</h2>
+<hr/>
+<form method="post">
+	<input type="text" id="txt7" name="txt7" value="@ViewData["numero1"]"/> <br />
+	<input type="text" id="txt8" name="txt8" value="@ViewData["numero2"]"/> <br />
+	<input type="submit" id="btn3" value="Calcola C#"/> <br />
+	<input type="text" id="txt9" name="txt9" value="@ViewBag.Risultato"/> <br />
+</form>
+
+
+

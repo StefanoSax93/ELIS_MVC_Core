@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Partecipanti>
+@{
+    ViewData["Title"] = "ElencoFiltratoSemplice";
+}
+
+<h1>Elenco Filtrato Semplice</h1>
+
+<form method="post"> 
+    <label>Inserisci la città: </label>
+    <input type="text" name="citta" value="@ViewBag.Citta"/>
+    <input class="btn btn-success" type="submit" value="Filtra"/>
+</form>
+
+<hr />
+
+<table class="table table-bordered mt-4">
+
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Cognome</th>
+		<th>Residenza</th>
+		<th>Data di nascita</th>
+		<th>Titolo di studio</th>
+	</tr>
+	@if (Model != null)
+	{
+		@foreach (var item in Model)
+		{
+				<tr>
+					<td>@item.Idpartecipante</td>
+					<td>@item.Nome</td>
+					<td>@item.Cognome</td>
+					<td>@item.Residenza</td>
+					<td>@item.DataNascita?.ToString("dd/MM/yyyy")</td>
+					<td>@item.TitoloStudio</td>
+				</tr>
+		}
+	}
+
+</table>
+
+

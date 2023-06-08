@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = "WebApiEsterna";
+}
+
+<h1>Web Api Esterna</h1>
+
+<hr class="my-3" />
+
+<table class="table table-bordered border border-2 border-dark">
+
+	<tr class="bg-dark text-light border-light">
+		<th>ID</th>
+		<th>Nome Compagnia</th>
+		<th>Nome Contatto</th>
+		<th>Paese</th>
+		<th>Città</th>
+		<th>Indirizzo</th>
+		<th>Region</th>
+		<th>FAX</th>
+		<th>Telefono</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr class="bg-light align-middle">
+			<td>@item.CustomerID</td>
+			<td>@item.CompanyName</td>
+			<td>@item.ContactName</td>
+			<td>@item.Country</td>
+			<td>@item.City</td>
+			<td>@item.Address</td>
+			<td>@item.Region</td>
+			<td>@item.Fax</td>
+			<td>@item.Phone</td>
+		</tr>
+	}
+</table>

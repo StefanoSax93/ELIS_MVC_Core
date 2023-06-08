@@ -1,0 +1,57 @@
+﻿@model Edizioni
+@{
+	ViewData["Title"] = "NuovaEdizione";
+}
+
+<h1>Aggiungi Edizione</h1>
+
+
+<form method="post">
+	<div class="container">
+		<div class="row my-3">
+		   <div class="col">
+			   ID:
+		   </div>
+		   <div class="col">
+			   <input type="number" class="form-control" name="Idedizione" value="@ViewBag.NuovoId"/>
+		   </div>
+	    </div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Corso:
+		   </div>
+		   <div class="col">
+			   <select asp-for="Idcorso" class ="form-control" asp-items="ViewBag.Idcorso"></select>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Data Inizio:
+		   </div>
+		   <div class="col">
+			   <input type="date" class="form-control" name="DataInizio"/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Luogo:
+		   </div>
+		   <div class="col">
+			   <input type="text" class="form-control" name="Luogo"/>
+		   </div>
+		</div>
+
+		<div class="row">
+		   <div class="col">
+
+		   </div>
+		   <div class="col">
+			   <input class="btn btn-success" type="submit" value="Salva" />
+		   </div>
+		</div>
+	</div>
+			
+</form>

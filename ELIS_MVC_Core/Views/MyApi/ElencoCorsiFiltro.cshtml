@@ -1,0 +1,61 @@
+﻿@model Corsi
+@{
+    ViewData["Title"] = "ElencoCorsiFiltro";
+}
+
+<h1>Elenco Filtrato Corsi Api</h1>
+
+ <hr />
+
+<form method="post">
+	<div class="row align-items-center my-3">
+		<div class="col-1">
+			<label>Cerca corso: </label>
+		</div>
+		<div class="col-3">
+			<input type="text" class="form-control" name="id" value="@ViewBag.id" />
+		</div>
+		<div class="col-2">
+			<input class="btn btn-success" type="submit" value="Filtra" />
+		</div>
+	</div>
+</form>
+
+<hr />
+
+@if (Model != null)
+{
+	@if (Model.Titolo != null)
+	{
+		<table class="table table-bordered mt-4 border border-2 border-dark">
+
+			<tr class="bg-dark text-light border-light">
+				<th>ID</th>
+				<th>Titolo</th>
+				<th>Durata</th>
+				<th>Scaletta</th>
+				<th>Costo</th>
+			</tr>
+
+
+
+			<tr class="bg-light align-middle">
+				<td>@Model.Idcorso</td>
+				<td>@Model.Titolo</td>
+				<td>@Model.Durata minuti</td>
+				<td>@Model.Scaletta</td>
+				<td>@string.Format("{0:0.00}", Model.Costo) €</td>
+			</tr>
+
+		</table>
+	} else
+	{
+		<h3>Nessun Risultato Trovato</h3>
+	}
+
+}
+
+
+
+
+

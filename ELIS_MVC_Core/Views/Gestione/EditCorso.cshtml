@@ -1,0 +1,56 @@
+﻿@model Corsi
+@{
+    ViewData["Title"] = "EditCorso";
+}
+
+<h1>Modifica Corso</h1>
+
+<form method="post">
+	<div class="container">
+		<div class="row my-3">
+		   <div class="col">
+			   Titolo:
+		   </div>
+		   <div class="col">
+			   <input type="text" name="titolo" value="@Model.Titolo"/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Durata:
+		   </div>
+		   <div class="col">
+			   <input type="number" name="durata" value="@Model.Durata"/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Scaletta:
+		   </div>
+		   <div class="col">
+			   <input type="text" name="scaletta" value="@Model.Scaletta"/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Costo:
+		   </div>
+		   <div class="col">
+			   <input type="number" name="costo" value="@Model.Costo"/>
+		   </div>
+		</div>
+
+		<div class="row">
+		   <div class="col">
+
+		   </div>
+		   <div class="col">
+			   <input class="btn btn-success" type="submit" value="Salva" />
+		   </div>
+		</div>
+	</div>
+</form>
+

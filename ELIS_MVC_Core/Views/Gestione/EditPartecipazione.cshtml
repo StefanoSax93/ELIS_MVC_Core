@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "EditPartecipazione";
+}
+
+<div class="container">
+<div class="d-flex justify-content-between align-items-center">
+	<h1>Modifica Partecipazione</h1>
+<a asp-action="ElencoPartecipazioni" class="text-light">
+		<button class="btn btn-success rounded-circle">
+				<i class="fa-solid fa-arrow-left"></i>
+		</button>
+</a>
+</div>
+
+<hr />
+
+<form method="post">
+	
+
+		<div class="row my-3">
+		   <div class="col">
+			   Id edizione:
+		   </div>
+		   <div class="col">
+			   <input type="number" class="form-control" name="idedizione" value="@Model.Idedizione" readonly/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Id partecipante:
+		   </div>
+		   <div class="col">
+			   <input type="number" class="form-control" name="idpartecipante" value="@Model.Idpartecipante" readonly/>
+		   </div>
+		</div>
+
+		<div class="row my-3">
+		   <div class="col">
+			   Giudizio:
+		   </div>
+		   <div class="col">
+			   <input type="text" class="form-control" name="giudizio" value="@Model.Giudizio"/>
+		   </div>
+		</div>
+
+		<div class="row">
+		   <div class="col">
+
+		   </div>
+		   <div class="col">
+			   <input class="btn btn-success" type="submit" value="Salva" />
+		   </div>
+		</div>
+	
+</form>
+</div>

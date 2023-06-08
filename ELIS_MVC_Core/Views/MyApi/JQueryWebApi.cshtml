@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "JQueryWebApi";
+}
+
+@section Scripts {
+    <script>
+
+        $(function() {
+            $("#btn").click(function() {
+                $.ajax({
+                    url: "http://localhost:5279/api/Corsis",
+                    type: "GET",
+                    dataType: "JSON"
+                }).done(function(jsonData) {
+                    $.each(jsonData,function(key,item){
+                        $("<tr class='bg-light'><td>" + item.idcorso + "</td><td>" + item.titolo + "</tr></td>").appendTo($("#target"))
+                    })
+                })
+            });
+        });
+
+    </script>
+}
+
+<h1>Elenco Corsi da web api con JQuery</h1>
+
+<hr />
+
+<input type="button" id="btn" value="Carica" class="btn btn-success"/> 
+<hr class="my-3"/>
+<table class="table table-bordered border border-2 border-dark" id="target">
+    <tr class="bg-dark text-light border-light">
+        <th>Id Corso</th>
+        <th>Titolo</th>
+    </tr>
+</table>
+
+
