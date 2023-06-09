@@ -1,11 +1,19 @@
 ﻿using ELIS_MVC_Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace ELIS_MVC_Core.Controllers
 {
     public class MyApiController : Controller
     {
+        private readonly CorsiContext _context;
+
+        public MyApiController(CorsiContext context)
+        {
+            _context = context;
+        }
         #region CORSI
 
         // CORSI
@@ -63,7 +71,33 @@ namespace ELIS_MVC_Core.Controllers
             return View(result);
         }
 
-        public IActionResult ElencoPartecipantiFiltro()
+		public async Task<IActionResult> EditPartecipante(int id)
+		{
+			string url = $"http://localhost:5279/api/Partecipantis/{id}";
+
+			HttpClient client = new HttpClient();
+			HttpResponseMessage response = await client.GetAsync(url);
+			string jsonData = await response.Content.ReadAsStringAsync();
+			var result = JsonConvert.DeserializeObject<Partecipanti>(jsonData);
+
+			return View(result);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> EditPartecipante(int id, Partecipanti partecipante)
+		{
+			string url = $"http://localhost:5279/api/Partecipantis/{id}";
+
+			HttpClient client = new HttpClient();
+			var nuovoRecord = new StringContent(JsonConvert.SerializeObject(partecipante), Encoding.UTF8, "application/json");
+
+			HttpResponseMessage response = await client.PutAsync(url, nuovoRecord);
+			response.EnsureSuccessStatusCode(); 
+
+			return RedirectToAction("ElencoPartecipanti");
+		}
+
+		public IActionResult ElencoPartecipantiFiltro()
         {
             return View();
         }
@@ -87,9 +121,104 @@ namespace ELIS_MVC_Core.Controllers
             return View();
         }
 
-        #endregion
+		/*
+         public async Task<IActionResult> ModificaPartecipante(int id)
+        {
+            string url = $"http://localhost:5208/api/Partecipantes/{id}";
 
-        public async Task<IActionResult> WebApiEsterna()
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonData = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<Partecipante>(jsonData);
+
+            ViewBag.partecipante = result;
+
+            return View(result);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ModificaPartecipante(int id,string nome,string cognome,DateTime? data,string residenza,string studio )
+        {
+            string url = $"http://localhost:5208/api/Partecipantes/{id}";
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonData = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<Partecipante>(jsonData);
+
+            if (nome != null)
+            {
+                result.Nome = nome;
+            }
+            else
+            {
+                result.Nome = result.Nome;
+
+            }
+
+            if (cognome != null)
+            {
+                result.Cognome = cognome;
+            }
+            else
+            {
+                result.Cognome = result.Cognome;
+
+            }
+            if (data != null)
+            {
+                result.DataNascita = data.Value;
+            }
+            else
+            {
+                result.DataNascita = result.DataNascita;
+
+            }
+
+            if (residenza != null)
+            {
+                result.Residenza = residenza;
+            }
+            else
+            {
+                result.Residenza = result.Residenza;
+
+            }
+
+            if (studio != null)
+            {
+                result.TitoloDiStudio = studio;
+            }
+            else
+            {
+                result.TitoloDiStudio = result.TitoloDiStudio;
+
+            }
+
+            var json = JsonConvert.SerializeObject(result);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var update = await client.PutAsync(url, content);
+
+
+          
+                return RedirectToAction("ElencoPartecipanti");
+          
+
+
+           
+        }
+         */
+
+		public IActionResult NuovoPartecipante()
+		{
+            ViewBag.NuovoId = _context.Partecipantis.Max(p => p.Idpartecipante) + 1;
+            return View();
+		}
+
+		#endregion
+
+		#region API ESTERNA
+		public async Task<IActionResult> WebApiEsterna()
         {
             string url = "https://webapicustomers.azurewebsites.net/api/Customers";
 
@@ -100,6 +229,7 @@ namespace ELIS_MVC_Core.Controllers
 
             return View(result);
         }
+		#endregion
 
-    }
+	}
 }

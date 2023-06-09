@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "EditPartecipante";
+}
+
+<h1>Modifica Partecipante</h1>
+
+<form method="post">
+	<div class="container">
+		
+		<input type="hidden" name="Idpartecipante" value="@Model.Idpartecipante"/>
+		
+		<div class="row my-3">
+			<div class="col">
+				Nome:
+			</div>
+			<div class="col">
+				<input type="text" name="Nome" value="@Model.Nome" class="form-control" />
+			</div>
+		</div>
+
+		<div class="row my-3">
+			<div class="col">
+				Cognome:
+			</div>
+			<div class="col">
+				<input type="text" name="Cognome" value="@Model.Cognome" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="row my-3">
+			<div class="col">
+				Data di Nascita:
+			</div>
+			<div class="col">
+				<input type="date" name="DataNascita" value="@Model.DataNascita.ToString("yyyy-MM-dd")" class="form-control" />
+			</div>
+		</div>
+
+		<div class="row my-3">
+			<div class="col">
+				Città di residenza:
+			</div>
+			<div class="col">
+				<input type="text" name="Residenza" value="@Model.Residenza" class="form-control" />
+			</div>
+		</div>
+
+		<div class="row my-3">
+			<div class="col">
+				Titolo di studio:
+			</div>
+			<div class="col">
+				<input type="text" name="TitoloStudio" value="@Model.TitoloStudio" class="form-control" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			</div>
+			<div class="col">
+				<input class="btn btn-success" type="submit" value="Salva" />
+			</div>
+		</div>
+	</div>
+</form>
+

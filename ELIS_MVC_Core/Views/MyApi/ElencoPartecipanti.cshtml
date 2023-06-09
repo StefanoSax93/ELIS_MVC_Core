@@ -5,9 +5,9 @@
 
 <h1>ElencoPartecipanti</h1>
 
-<hr class="my-3" />
+<a asp-action="NuovoPartecipante" class="fw-bold text-decoration-none my-3">Nuovo Partecipante</a>
 
-<table class="table table-bordered border border-2 border-dark">
+<table class="table table-bordered border border-2 border-dark mt-3">
 
 	<tr class="bg-dark text-light border-light">
 		<th>ID</th>
@@ -16,6 +16,7 @@
 		<th>Data di nascita</th>
 		<th>Residenza</th>
 		<th>Titolo di studio</th>
+		<th>Modifica</th>
 	</tr>
 
 	@foreach (var item in Model)
@@ -27,6 +28,7 @@
 			<td>@item.DataNascita?.ToString("dd/MM/yyyy")</td>
 			<td>@item.Residenza</td>
 			<td>@item.TitoloStudio</td>
+			<td><a asp-action="EditPartecipante" asp-route-id="@item.Idpartecipante" class="fw-bold text-decoration-none">Edit</a></td>
 		</tr>
 	}
 </table>
